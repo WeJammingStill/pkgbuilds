@@ -1,0 +1,30 @@
+# Maintainer: Brandon Duval <brandond44@gmail.com>
+
+pkgname=plane-icon-theme-git
+pkgver=r170.07a0381
+pkgrel=1
+epoch=1
+pkgdesc="Plane icon theme (git version)"
+url="https://github.com/wfpaisa/${pkgname%-git}"
+arch=('any')
+license=('LGPL3')
+makedepends=('git')
+provides=("${pkgname%-git}")
+source=("${pkgname}::git+${url}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${pkgname}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    mkdir -p ${pkgdir}/usr/share/icons/PlaneGnomeArch
+    mkdir -p ${pkgdir}/usr/share/icons/PlaneDarkGnomedarkArchdark
+    cd "${srcdir}/${pkgname}"
+    unzip build/zip-variants/PlaneGnomeArch-1.4.zip -d ${pkgdir}/usr/share/icons/PlaneGnomeArch
+    unzip build/zip-variants/PlaneDarkGnomedarkArchdark-1.4.zip -d ${pkgdir}/usr/share/icons/PlaneDarkGnomedarkArchdark
+
+    install -d  ${pkgdir}/usr/share/icons/PlaneGnomeArch
+    install -d ${pkgdir}/usr/share/icons/PlaneDarkGnomedarkArchdark
+}
