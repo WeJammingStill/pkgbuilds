@@ -41,7 +41,7 @@
 # same directory as this PKGBUILD file, then run makepkg.
 
 pkgbase=ttf-ms-win10
-pkgname=($pkgbase{,-japanese,-korean,-sea,-thai,-zh_cn,-zh_tw,-other})
+pkgname=($pkgbase{,-zh_cn,-zh_tw})
 pkgver=10.0.17763.1
 pkgrel=1
 arch=(any)
@@ -51,7 +51,7 @@ depends=(fontconfig xorg-fonts-encodings xorg-mkfontscale xorg-mkfontdir)
 provides=(ttf-font)
 conflicts=(ttf-vista-fonts)
 
-#_ttf_ms_win10=(
+_ttf_ms_win10=(
 ##########################################################################################
 ## Normal         Bold          Italic        Bold+Italic    #  Full name                #
 ##########################################################################################
@@ -87,14 +87,14 @@ conflicts=(ttf-vista-fonts)
 #seguisym.ttf                                                # Segoe UI Symbol
 #Sitka.ttc      SitkaB.ttc     SitkaI.ttc     SitkaZ.ttc     # Sitka
 #sylfaen.ttf                                                 # Sylfaen
-#symbol.ttf                                                  # Symbol
+symbol.ttf                                                  # Symbol
 #tahoma.ttf     tahomabd.ttf                                 # Tahoma
 #times.ttf      timesbd.ttf    timesi.ttf     timesbi.ttf    # Times New Roman
 #trebuc.ttf     trebucbd.ttf   trebucit.ttf   trebucbi.ttf   # Trebuchet MS
 #verdana.ttf    verdanab.ttf   verdanai.ttf   verdanaz.ttf   # Verdana
 #webdings.ttf                                                # Webdings
 #wingding.ttf                                                # Wingdings
-#)
+)
 
 #_ttf_ms_win10_japanese=(
 ##########################################################################################
@@ -168,18 +168,17 @@ mingliub.ttc                                                # MingLiU_HKSCS-ExtB
 
 DLAGENTS=("file::/usr/bin/echo ${BOLD}${RED} Unable to find %u, please read the PKGBUILD ${ALL_OFF}" $DLAGENTS)
 
-#source=(${_ttf_ms_win10[@]/#/file://}
+source=(
+        ${_ttf_ms_win10[@]/#/file://}
         #${_ttf_ms_win10_japanese[@]/#/file://}
         #${_ttf_ms_win10_korean[@]/#/file://}
         #${_ttf_ms_win10_sea[@]/#/file://}
         #${_ttf_ms_win10_thai[@]/#/file://}
-        #${_ttf_ms_win10_zh_cn[@]/#/file://}
-        #${_ttf_ms_win10_zh_tw[@]/#/file://}
+        ${_ttf_ms_win10_zh_cn[@]/#/file://}
+        ${_ttf_ms_win10_zh_tw[@]/#/file://}
         #${_ttf_ms_win10_other[@]/#/file://}
-        #file://license.rtf)
-
-source=(git@gitlab.com:th3lusive/ms-win10-font.git)
-
+        file://license.rtf)
+        
 _package() {
     cd "${srcdir}"
     conflicts+=(${pkgname/10/8} ttf-win7-fonts${pkgname##*10})
@@ -188,13 +187,13 @@ _package() {
     install -Dm644 license.rtf -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-#package_ttf-ms-win10() {
-#    cd "${srcdir}"
-#    pkgdesc='Microsoft Windows 10 TrueType fonts'
-#    provides+=(ttf-tahoma ttf-ms-fonts)
-#    conflicts+=(ttf-tahoma ttf-ms-fonts)
-#    _package ${_ttf_ms_win10[@]}
-#}
+package_ttf-ms-win10() {
+    cd "${srcdir}"
+    pkgdesc='Microsoft Windows 10 TrueType fonts'
+    provides+=(ttf-tahoma)
+    conflicts+=(ttf-tahoma)
+    _package ${_ttf_ms_win10[@]}
+}
 #
 #package_ttf-ms-win10-japanese() {
 #    cd "${srcdir}"
@@ -237,4 +236,14 @@ package_ttf-ms-win10-zh_tw() {
 #    pkgdesc='Microsoft Windows 10 Other TrueType fonts'
 #    _package ${_ttf_ms_win10_other[@]}
 #}
-md5sums=('SKIP')
+md5sums=('3e443984997631a694dabf0fba9c8693'
+         'bc9c5051b849545eaecb9caeed711d79'
+         'f6ae7b75d2081045afbc4871feb763d2'
+         '4f6a5917d8a4c179f8c3ed7eec7e3a48'
+         'c8d4adc05081f9dff739ee4f5885a0bc'
+         '669b86d0ba82c787856f404ed3af6a22'
+         '9c948390eef9e542af0c26a34ef35dbf'
+         '7068a3469a54560d7504605c560886a5'
+         '1ea71fa639d5d3d98f4b75f21cab1c4a'
+         '45dce18802baeb05e941fcc3acd1bcff'
+         '116335bc0f3a45a77101d40932e52e43')
