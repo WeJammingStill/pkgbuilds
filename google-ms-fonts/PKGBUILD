@@ -1,0 +1,23 @@
+# Maintainer: Brandon Benn <brandond44@gmail.com>
+pkgname=google-ms-fonts
+pkgver=0.0.1
+pkgrel=3
+pkgdesc='Aliases Google for Core TTF Fonts from Microsoft'
+arch=('any')
+url='https://bugs.chromium.org/p/chromium/issues/detail?id=280557'
+license=('Apache')
+depends=('fontconfig'
+         'ttf-croscore'
+         'ttf-caladea'
+         'ttf-carlito')
+conflicts=('ttf-ms-fonts')
+provides=('ttf-ms-fonts')
+source=('56-google-ms-fonts.conf')
+sha256sums=('SKIP')
+
+package() {
+	install -D -m0644 ${srcdir}/56-google-ms-fonts.conf ${pkgdir}/etc/fonts/conf.avail/56-google-ms-fonts.conf
+	install -d ${pkgdir}/etc/fonts/conf.d/
+	ln -s /etc/fonts/conf.avail/56-google-ms-fonts.conf ${pkgdir}/etc/fonts/conf.d/56-google-ms-fonts.conf
+}
+
