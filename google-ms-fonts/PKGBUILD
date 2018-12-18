@@ -12,12 +12,31 @@ depends=('fontconfig'
          'ttf-carlito')
 conflicts=('ttf-ms-fonts')
 provides=('ttf-ms-fonts')
-source=('56-google-ms-fonts.conf')
-sha256sums=('SKIP')
+source=(
+    'local.conf'
+    'mtextra.ttf'
+    'symbol.ttf'
+    'wingding.ttf'
+    'WINGDNG2.ttf'
+    'WINGDNG3.ttf'
+    )
 
 package() {
-	install -D -m0644 ${srcdir}/56-google-ms-fonts.conf ${pkgdir}/etc/fonts/conf.avail/56-google-ms-fonts.conf
+	install -D -m0644 ${srcdir}/local.conf ${pkgdir}/etc/fonts/conf.avail/local.conf
 	install -d ${pkgdir}/etc/fonts/conf.d/
-	ln -s /etc/fonts/conf.avail/56-google-ms-fonts.conf ${pkgdir}/etc/fonts/conf.d/56-google-ms-fonts.conf
+	ln -s /etc/fonts/conf.avail/local.conf ${pkgdir}/etc/fonts/conf.d/local.conf
+
+    install -d "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/mtextra.ttf" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/symbol.ttf" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/wingding.ttf" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/WINGDNG2.ttf" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/WINGDNG3.ttf" "$pkgdir/usr/share/fonts/TTF/"
 }
 
+md5sums=('3f4e30456a7689ea240464a05a77965b'
+         'fe5c714162bf1b9c936b2bc5e66da03e'
+         '9629034e291841f941497d4a365c01f7'
+         '68c74934563bf4afa50793c67bd19b24'
+         'd6478dbc2e84b8def5dc115dcda0b29d'
+         '9e2ee65661bee40438d514fe592bfcf8')
