@@ -1,0 +1,27 @@
+# Maintainer: Brandon Benn <brandond44@gmail.com>
+pkgname=ttf-ms-fonts-zh-tw
+pkgver=0.0.1
+pkgrel=3
+pkgdesc='Microsoft Windows 10 Traditional Chinese TrueType fonts'
+arch=('any')
+url='http://www.microsoft.com/typography/fonts/product.aspx?PID=164'
+license=(custom)
+depends=(fontconfig xorg-fonts-encodings xorg-mkfontscale xorg-mkfontdir)
+provides=(ttf-font)
+source=(
+    'mingliu.ttc'
+    'msjhbd.ttc'
+    'msjhl.ttc'
+    'msjh.ttc'
+    )
+package() {
+    install -d "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/mingliu.ttc" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/msjhbd.ttc" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/msjhl.ttc" "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/msjh.ttc" "$pkgdir/usr/share/fonts/TTF/"
+}
+md5sums=('bbef1c3d8de08a7784bb588435de6f80'
+         '7068a3469a54560d7504605c560886a5'
+         '1ea71fa639d5d3d98f4b75f21cab1c4a'
+         '9c948390eef9e542af0c26a34ef35dbf')
