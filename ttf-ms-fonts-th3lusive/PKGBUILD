@@ -1,0 +1,37 @@
+# Maintainer: Brandon Benn <brandond44@gmail.com>
+pkgname=ttf-ms-fonts-th3lusive
+pkgver=0.0.1
+pkgrel=3
+pkgdesc='ttf-ms-fonts-th3lusive'
+arch=('any')
+url='http://www.microsoft.com/typography/fonts/product.aspx?PID=164'
+license=(custom)
+depends=(fontconfig xorg-fonts-encodings xorg-mkfontscale xorg-mkfontdir)
+provides=(ttf-font)
+conflicts=(ttf-ms-fonts)
+source=(
+    'arial.ttf'
+    'calibri.ttf'
+    'cambriab.ttf'
+    'cambria.ttc'
+    'comic.ttf'
+    'couri.ttf'
+    'georgia.ttf'
+    'impact.ttf'
+    'times.ttf'
+    'wingding.ttf'
+    )
+package() {
+    install -d "$pkgdir/usr/share/fonts/TTF/"
+    install -m644 "$srcdir/"*.ttf "$pkgdir/usr/share/fonts/TTF/"
+}
+md5sums=('91871314e7593d93e7d52d272e75deb6'
+         'e0452f17d8c0264e8ffe4d9e51ac00e8'
+         '5b7b237c5deb77a39993026b73fe599c'
+         '07684906603adafaea12a123c3dffa7f'
+         'e44d8622ec671f403bbbe095c4577f44'
+         'f02823a06f412ee43622b121d1ab0488'
+         '1cd0007b3d49769a10d1260d71507053'
+         'f12902024f7b77ee4c34557ee6f3818b'
+         '673d8e93b8b0a5352170084aed4eab31'
+         'd9f147b4c366da5940876fd47992c4d2')
