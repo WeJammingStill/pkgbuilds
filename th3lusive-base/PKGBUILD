@@ -111,7 +111,7 @@ package() {
     install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
 }
 md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
-         '30b8b4a264189d4097d78c360dae835c'
+         'ee155a1ad12a2d54ac8a8f4bae4a71eb'
          'c7921912ed8d78ee35a4c0de7ba65a00'
          '07613b1a7886979f47943b3e1d308e99'
          '3696b98be708f3214972bbe4ea4f047d')

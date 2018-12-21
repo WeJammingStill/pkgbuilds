@@ -6,6 +6,26 @@ post_install() {
     sed 's/#en_US/en_US/' -i /etc/locale.gen
     sed 's/#zh_TW/en_US/' -i /etc/locale.gen
     locale-gen
+    
+cat <<EOF >> /etc/pacman.conf
+Color
+VerbosePkgLists
+
+[archlinuxcn]
+Server = https://cdn.repo.archlinuxcn.org/$arch
+
+[nexus]
+Server = https://repo.itmettke.de/$repo/$arch
+EOF
+
+
+    pacman -Syy
+    # archlinuxcn
+    pacman -S archlinuxcn-keyring
+    # nexus
+    pacman-key --recv 7448C890582975CD 
+    pacman-key --lsign 7448C890582975CD 
+
 }
 
 post_upgrade() {
