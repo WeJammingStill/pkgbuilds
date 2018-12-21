@@ -1,0 +1,24 @@
+# Maintainer: Einhard Leichtfuß <alguien@respiranto.de>
+#http://download.huzheng.org/zh_TW/stardict-langdao-ec-big5-2.4.2.tar.bz2 
+_pkgname=stardict-langdao-ec-big
+pkgname=${_pkgname}-bin
+pkgver=5.2.4.2
+_pkgver=5-2.4.2
+pkgrel=3
+pkgdesc="English -> Chinese dictionary for stardict et al. from huzheng.org"
+arch=('any')
+url=" http://download.huzheng.org"
+license=('GPL')
+optdepends=('sdcv: command line dictionary.')
+provides=(${_pkgname})
+conflicts=(${_pkgname})
+source=("http://download.huzheng.org/zh_TW/${_pkgname}${_pkgver}.tar.bz2")
+sha512sums=('SKIP')
+
+package()
+{
+    cd $_pkgname$_pkgver
+	install -m 755 -d "${pkgdir}/usr/share/stardict/dic/${_pkgname}"
+	install -m 644 -t "${pkgdir}/usr/share/stardict/dic/${_pkgname}" \
+        langdao-ec-big5.{dict.dz,idx,ifo}
+}
