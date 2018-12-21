@@ -1,5 +1,4 @@
-# Maintainer: Einhard Leichtfuß <alguien@respiranto.de>
-#http://download.huzheng.org/zh_TW/stardict-langdao-ec-big5-2.4.2.tar.bz2 
+# Maintainer: th3lusive <th3lusive@yahoo.com>
 _pkgname=stardict-langdao-ec-big
 pkgname=${_pkgname}-bin
 pkgver=5.2.4.2

@@ -1,6 +1,4 @@
-# Maintainer: Einhard Leichtfuß <alguien@respiranto.de>
-# Contributor: Benjamin Vanderford <hazor_at_swrpg_dot_info>
-#http://download.huzheng.org/dict.org/stardict-dictd_www.dict.org_gcide-2.4.2.tar.bz2
+# Maintainer: th3lusive <th3lusive@yahoo.com>
 _pkgname=stardict-www.dict.org_gcide
 pkgname=${_pkgname}-bin
 pkgver=5.2.4.2
@@ -8,14 +6,13 @@ _pkgver=2.4.2
 pkgrel=3
 pkgdesc="The Collaborative International Dictionary of English for stardict et al. from huzheng.org"
 arch=('any')
-url=" http://download.huzheng.org"
+url="http://download.huzheng.org"
 license=('GPL')
 optdepends=('sdcv: command line dictionary.')
 provides=(${_pkgname})
 conflicts=(${_pkgname})
 source=("http://download.huzheng.org/dict.org/${_pkgname}-${_pkgver}.tar.bz2")
 sha512sums=('SKIP')
-
 package()
 {
     cd $_pkgname-$_pkgver
