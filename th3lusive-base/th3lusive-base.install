@@ -1,0 +1,15 @@
+post_install() {
+    systemctl enable --now lightdm.service
+    systemctl enable --now NetworkManager
+    systemctl enable --now systemd-timesyncd
+    ln -sf /usr/share/zoneinfo/Asia/Taipei "/etc/localtime"
+    sed 's/#en_US/en_US/' -i /etc/locale.gen
+    sed 's/#zh_TW/en_US/' -i /etc/locale.gen
+    locale-gen
+}
+
+post_upgrade() {
+    sed 's/#en_US/en_US/' -i /etc/locale.gen
+    sed 's/#zh_TW/en_US/' -i /etc/locale.gen
+    locale-gen
+}

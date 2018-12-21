@@ -1,0 +1,117 @@
+# Maintainer: Brandon Benn <th3lusive@yahoo.com>
+pkgname=th3lusive-base
+pkgver=1
+pkgrel=1
+pkgdesc="Base system configuration for th3lusive systems"
+arch=('any')
+url="https://gitlab.com/th3lusive/pkgbuilds"
+license=('MIT')
+groups=('th3lusive')
+install=th3lusive-base.install
+provides=(
+    'vim'
+    'vi'
+)
+conflicts=(
+    'vim'
+    'vi'
+)
+depends=(
+    'bash'
+    'bzip2'
+    'coreutils'
+    'cryptsetup'
+    'device-mapper'
+    'dhcpcd'
+    'diffutils'
+    'e2fsprogs'
+    'file'
+    'filesystem'
+    'findutils'
+    'gawk'
+    'gcc-libs'
+    'gettext'
+    'glibc'
+    'grep'
+    'gzip'
+    'inetutils'
+    'iproute2'
+    'iputils'
+    'jfsutils'
+    'less'
+    'licenses'
+    'logrotate'
+    'lvm2'
+    'man-db'
+    'man-pages'
+    'mdadm'
+    'nano'
+    'netctl'
+    'pacman'
+    'pciutils'
+    'perl'
+    'procps-ng'
+    'psmisc'
+    'reiserfsprogs'
+    's-nail'
+    'sed'
+    'shadow'
+    'sysfsutils'
+    'systemd-sysvcompat'
+    'tar'
+    'texinfo'
+    'usbutils'
+    'util-linux'
+    'which'
+    'xfsprogs'
+    'linux'
+    'linux-lts'
+    'exfat-utils'
+    'zsh'
+    'grml-zsh-config'
+    'sudo'
+    'xorg-server'
+    'lightdm'
+    'lightdm-webkit2-greeter'
+    'lightdm-webkit-theme-litarvan'
+    'neovim'
+    'python-neovim'
+    'python2-neovim'
+    'ripgrep'
+    'exa'
+    'bat'
+    'fd'
+    'dialog'
+    'git'
+    'trash-cli'
+    'ranger'
+    'ncmpcpp'
+    'mpd'
+    'pulseaudio'
+    'pulseaudio-alsa'
+)
+
+source=(
+    'th3lusive-base.sh'
+    'th3lusive-base.install'
+    '00-keyboard.conf'
+    'lightdm-webkit2-greeter.conf'
+    'lightdm.conf'
+)
+
+package() {
+    install -dm 0755 "$pkgdir/usr/bin"
+    ln -s /usr/bin/nvim "$pkgdir/usr/bin/vim"
+    ln -s /usr/bin/nvim "$pkgdir/usr/bin/vi"
+
+    install -Dm 0644 lightdm.conf "$pkgdir/etc/lightdm/lightdm.conf"
+    install -Dm 0644 lightdm-webkit2-greeter.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter.conf"
+
+    install -Dm 0644 00-keyboard.conf "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
+    install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
+}
+md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
+         '30b8b4a264189d4097d78c360dae835c'
+         'c7921912ed8d78ee35a4c0de7ba65a00'
+         '07613b1a7886979f47943b3e1d308e99'
+         '3696b98be708f3214972bbe4ea4f047d')
