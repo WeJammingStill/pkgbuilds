@@ -3,3 +3,5 @@
 */*/
 */*.pkg.tar.xz
 */*/*.tar.*
+*.db.tar.gz.old
+*.files.tar.gz.old
