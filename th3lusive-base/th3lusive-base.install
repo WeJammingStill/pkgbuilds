@@ -6,11 +6,12 @@ post_install() {
     sed 's/#en_US/en_US/' -i /etc/locale.gen
     sed 's/#zh_TW/en_US/' -i /etc/locale.gen
     locale-gen
+
+
+    sed 's/#color/color/' -i /etc/pacman.conf
+    sed 's/#VerbosePkgLists/VerbosePkgLists/' -i /etc/pacman.conf
     
 cat <<EOF >> /etc/pacman.conf
-Color
-VerbosePkgLists
-
 [archlinuxcn]
 Server = https://cdn.repo.archlinuxcn.org/$arch
 
