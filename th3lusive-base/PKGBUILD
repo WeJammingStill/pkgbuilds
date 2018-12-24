@@ -112,3 +112,9 @@ package() {
     install -Dm 0644 30-touchpad.conf "$pkgdir/etc/X11/xorg.conf.d/30-touchpad.conf"
     install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
 }
+md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
+         '6faac5a5b1eceeb511b986a144374f74'
+         'c7921912ed8d78ee35a4c0de7ba65a00'
+         '93756eb9e4cb17fc77c4e91a3170f253'
+         '07613b1a7886979f47943b3e1d308e99'
+         '3696b98be708f3214972bbe4ea4f047d')
