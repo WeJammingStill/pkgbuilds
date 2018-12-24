@@ -8,14 +8,8 @@ url="https://gitlab.com/th3lusive/pkgbuilds"
 license=('MIT')
 groups=('th3lusive')
 install=th3lusive-base.install
-provides=(
-    'vim'
-    'vi'
-)
-conflicts=(
-    'vim'
-    'vi'
-)
+provides=('vim' 'vi')
+conflicts=('vim' 'vi')
 depends=(
     'bash'
     'bzip2'
@@ -94,10 +88,13 @@ depends=(
 source=(
     'th3lusive-base.sh'
     'th3lusive-base.install'
+    'fontconfig-local.conf'
+    'pkglist.hook'
     '00-keyboard.conf'
     '30-touchpad.conf'
     'lightdm-webkit2-greeter.conf'
     'lightdm.conf'
+    'unoffical-repos'
 )
 
 package() {
@@ -107,14 +104,10 @@ package() {
 
     install -Dm 0644 lightdm.conf "$pkgdir/etc/lightdm/lightdm.conf"
     install -Dm 0644 lightdm-webkit2-greeter.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter.conf"
-
+    install -Dm 0644 fontconfig-local.conf "$pkgdir"/etc/fonts/local.conf
+    install -Dm 0644 unoffical-repos "$pkgdir"/etc/pacman.d/unoffical
+    install -Dm 0644 pkglist.hook "$pkgdir" /usr/share/libalpm/hooks/pkglist.hook
     install -Dm 0644 00-keyboard.conf "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
     install -Dm 0644 30-touchpad.conf "$pkgdir/etc/X11/xorg.conf.d/30-touchpad.conf"
     install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
 }
-md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
-         '6faac5a5b1eceeb511b986a144374f74'
-         'c7921912ed8d78ee35a4c0de7ba65a00'
-         '93756eb9e4cb17fc77c4e91a3170f253'
-         '07613b1a7886979f47943b3e1d308e99'
-         '3696b98be708f3214972bbe4ea4f047d')

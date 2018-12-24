@@ -1,4 +1,6 @@
 post_install() {
+
+
     systemctl enable --now lightdm.service
     systemctl enable --now NetworkManager
     systemctl enable --now systemd-timesyncd
