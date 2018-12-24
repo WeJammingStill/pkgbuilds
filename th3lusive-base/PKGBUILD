@@ -86,6 +86,7 @@ depends=(
     'mpd'
     'pulseaudio'
     'pulseaudio-alsa'
+    'noto-fonts-emoji'
 )
 
 source=(
