@@ -16,7 +16,6 @@ depends=(
     'gthumb'
     'geary'
     'nautilus'
-    'sushi'
     'tilix'
     'dconf-editor'
     'gvfs'
