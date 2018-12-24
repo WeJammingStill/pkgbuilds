@@ -96,8 +96,8 @@ source=(
     'pkglist.hook'
     '00-keyboard.conf'
     '30-touchpad.conf'
-    'lightdm-webkit2-greeter.conf'
-    'lightdm.conf'
+    'lightdm-webkit2-greeter-th3lusive.conf'
+    'lightdm-th3lusive.conf'
     'unoffical-repos'
 )
 
@@ -106,8 +106,8 @@ package() {
     ln -s /usr/bin/nvim "$pkgdir/usr/bin/vim"
     ln -s /usr/bin/nvim "$pkgdir/usr/bin/vi"
 
-    install -Dm 0644 lightdm.conf "$pkgdir/etc/lightdm/lightdm.conf"
-    install -Dm 0644 lightdm-webkit2-greeter.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter.conf"
+    install -Dm 0644 lightdm-th3lusive.conf "$pkgdir/etc/lightdm/lightdm-th3lusive.conf"
+    install -Dm 0644 lightdm-webkit2-greeter-th3lusive.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter-th3lusive.conf"
     install -Dm 0644 fontconfig-local.conf "$pkgdir"/etc/fonts/local.conf
     install -Dm 0644 unoffical-repos "$pkgdir"/etc/pacman.d/unoffical
     install -Dm 0644 pkglist.hook "$pkgdir"/usr/share/libalpm/hooks/pkglist.hook
@@ -116,7 +116,7 @@ package() {
     install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
 }
 md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
-         '7cc9c5a3b89a4fd54307eca5ead06fb8'
+         '4d57a613c8d26f9c700d67870a265ac1'
          '56af089f5e3bd2fcc18ec532527f9ff2'
          '124081be44b5fdab6b92509792663e9c'
          'c7921912ed8d78ee35a4c0de7ba65a00'

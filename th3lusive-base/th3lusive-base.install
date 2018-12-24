@@ -1,5 +1,6 @@
 post_install() {
-
+    cp /etc/lightdm/lightdm-th3lusive.conf /etc/lightdm/lightdm.conf
+    cp /etc/lightdm/lightdm-webkit2-greeter-th3lusive.conf /etc/lightdm/lightdm-webkit2-greeter.conf  
 
     systemctl enable --now lightdm.service
     systemctl enable --now NetworkManager
@@ -9,26 +10,15 @@ post_install() {
     sed 's/#zh_TW/en_US/' -i /etc/locale.gen
     locale-gen
 
-
-    sed 's/#color/color/' -i /etc/pacman.conf
+    sed 's/#Color/Color/' -i /etc/pacman.conf
     sed 's/#VerbosePkgLists/VerbosePkgLists/' -i /etc/pacman.conf
     
-cat <<EOF >> /etc/pacman.conf
-[archlinuxcn]
-Server = https://cdn.repo.archlinuxcn.org/$arch
-
-[nexus]
-Server = https://repo.itmettke.de/$repo/$arch
-EOF
-
-
     pacman -Syy
     # archlinuxcn
     pacman -S archlinuxcn-keyring
     # nexus
     pacman-key --recv 7448C890582975CD 
     pacman-key --lsign 7448C890582975CD 
-
 }
 
 post_upgrade() {
