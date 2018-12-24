@@ -62,6 +62,9 @@ depends=(
     'linux-lts'
     'exfat-utils'
     'zsh'
+    'zsh-autosuggestions'
+    'zsh-completions'
+    'zsh-syntax-highlighting'
     'grml-zsh-config'
     'sudo'
     'xorg-server'
@@ -106,8 +109,17 @@ package() {
     install -Dm 0644 lightdm-webkit2-greeter.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter.conf"
     install -Dm 0644 fontconfig-local.conf "$pkgdir"/etc/fonts/local.conf
     install -Dm 0644 unoffical-repos "$pkgdir"/etc/pacman.d/unoffical
-    install -Dm 0644 pkglist.hook "$pkgdir" /usr/share/libalpm/hooks/pkglist.hook
+    install -Dm 0644 pkglist.hook "$pkgdir"/usr/share/libalpm/hooks/pkglist.hook
     install -Dm 0644 00-keyboard.conf "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
     install -Dm 0644 30-touchpad.conf "$pkgdir/etc/X11/xorg.conf.d/30-touchpad.conf"
     install -Dm 0755 th3lusive-base.sh "$pkgdir/etc/profile.d/th3lusive-base.sh"
 }
+md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
+         '7cc9c5a3b89a4fd54307eca5ead06fb8'
+         '56af089f5e3bd2fcc18ec532527f9ff2'
+         '124081be44b5fdab6b92509792663e9c'
+         'c7921912ed8d78ee35a4c0de7ba65a00'
+         '93756eb9e4cb17fc77c4e91a3170f253'
+         '07613b1a7886979f47943b3e1d308e99'
+         '3696b98be708f3214972bbe4ea4f047d'
+         '02c168a7f17722a71749cc293e405199')
