@@ -1,7 +1,6 @@
 # Maintainer: th3lusive <th3lusive@yahoo.com>
 pkgname=th3lusive-base
-pkgver=1
-pkgrel=1
+pkgver=1.1
 pkgdesc="Base system configuration for th3lusive systems"
 arch=('any')
 url="https://gitlab.com/th3lusive/pkgbuilds"
@@ -87,12 +86,15 @@ depends=(
     'pulseaudio'
     'pulseaudio-alsa'
     'noto-fonts-emoji'
+    'ttf-dejavu'
 )
 
 source=(
     'th3lusive-base.sh'
     'th3lusive-base.install'
     'fontconfig-local.conf'
+    '69-emoji.conf'
+    '70-no-dejavu.conf'
     'pkglist.hook'
     '00-keyboard.conf'
     '30-touchpad.conf'
@@ -109,6 +111,8 @@ package() {
     install -Dm 0644 lightdm-th3lusive.conf "$pkgdir/etc/lightdm/lightdm-th3lusive.conf"
     install -Dm 0644 lightdm-webkit2-greeter-th3lusive.conf "$pkgdir/etc/lightdm/lightdm-webkit2-greeter-th3lusive.conf"
     install -Dm 0644 fontconfig-local.conf "$pkgdir"/etc/fonts/local.conf
+    install -Dm 0644 69-emoji.conf "$pkgdir"/etc/fonts/conf.d/69-emoji.conf
+    install -Dm 0644 70-no-dejavu.conf "$pkgdir"/etc/fonts/conf.d/70-no-dejavu.conf
     install -Dm 0644 unoffical-repos "$pkgdir"/etc/pacman.d/unoffical
     install -Dm 0644 pkglist.hook "$pkgdir"/usr/share/libalpm/hooks/pkglist.hook
     install -Dm 0644 00-keyboard.conf "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
@@ -118,6 +122,8 @@ package() {
 md5sums=('cbd3022d7abed6807a14e2d49a5f50be'
          '4d57a613c8d26f9c700d67870a265ac1'
          '56af089f5e3bd2fcc18ec532527f9ff2'
+         'd79b22cb3799c069613c8cdc40a70449'
+         '46c08650f1a531dbf87ff393df41009a'
          '124081be44b5fdab6b92509792663e9c'
          'c7921912ed8d78ee35a4c0de7ba65a00'
          '93756eb9e4cb17fc77c4e91a3170f253'
