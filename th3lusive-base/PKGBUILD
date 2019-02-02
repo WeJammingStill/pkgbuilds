@@ -1,7 +1,7 @@
 # Maintainer: th3lusive <th3lusive@yahoo.com>
 pkgname=th3lusive-base
-pkgver=1
-pkgrel=1
+pkgver=1.1
+pkgrel=2
 pkgdesc="Base system configuration for th3lusive systems"
 arch=('any')
 url="https://gitlab.com/th3lusive/pkgbuilds"
@@ -61,11 +61,7 @@ depends=(
     'linux'
     'linux-lts'
     'exfat-utils'
-    'zsh'
-    'zsh-autosuggestions'
-    'zsh-completions'
-    'zsh-syntax-highlighting'
-    'grml-zsh-config'
+    'fish'
     'sudo'
     'xorg-server'
     'lightdm'
