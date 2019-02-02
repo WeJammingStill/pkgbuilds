@@ -1,5 +1,2 @@
 [archlinuxcn]
 Server = https://cdn.repo.archlinuxcn.org/$arch
-
-[nexus]
-Server = https://repo.itmettke.de/$repo/$arch
