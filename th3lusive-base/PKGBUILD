@@ -1,11 +1,8 @@
 # Maintainer: th3lusive <th3lusive@yahoo.com>
 pkgname=th3lusive-base
-<<<<<<< HEAD
 pkgver=1
 pkgrel=2
-=======
 pkgver=1.1
->>>>>>> cedae5d952af3752a87b87d572fcf9b3dca6284a
 pkgdesc="Base system configuration for th3lusive systems"
 arch=('any')
 url="https://gitlab.com/th3lusive/pkgbuilds"
@@ -43,7 +40,6 @@ depends=(
     'man-db'
     'man-pages'
     'mdadm'
-    'nano'
     'netctl'
     'pacman'
     'pciutils'
@@ -73,15 +69,12 @@ depends=(
     'lightdm-webkit-theme-litarvan'
     'neovim'
     'python-neovim'
-    'python2-neovim'
     'ripgrep'
-    'exa'
     'bat'
     'fd'
     'dialog'
     'git'
     'trash-cli'
-    'ranger'
     'ncmpcpp'
     'mpd'
     'pulseaudio'
