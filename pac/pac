@@ -70,6 +70,11 @@ remove () {
     (( ${#pkgs[@]} > 0 )) && sudo pacman -Rcusn "${pkgs[@]}"
 }
 
+autoremove () {
+    printf ":: Removing unused packages (orphans)...\n";
+    sudo pacman -Rns $(pacman -Qtdq)
+}
+
 install() {
     if (( $# > 0 )); then
       sudo pacman -S "$@"
@@ -99,6 +104,7 @@ case "$1" in
   h|help|-h|--help) usage; exit ;;
   install|in) install "${@:2}"; shift 2 ;;
   remove|rm) remove "${@:2}"; shift 2 ;;
+  auto-remove|arm) autoremove; shift 2 ;;
   a|aur) aur "${@:2}"; shift 2 ;;
   as|aur-sync) aursync; shift 2 ;;
   -u|up|update) update; shift 2 ;;
