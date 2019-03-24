@@ -1,6 +1,6 @@
 # Maintainer: th3lusive <th3lusive@yahoo.com>
 pkgname=pac
-pkgver=0.1
+pkgver=0.2
 pkgrel=1
 pkgdesc="FZF wrapper for pacman and AUR helper."
 arch=('any')
@@ -10,7 +10,7 @@ optdepends=('yay: Support for AUR packages.')
 provides=($pkgname)
 conflicts=($pkgname)
 source=('pac')
-md5sums=('a6791b431e05bd85c5662c66836f7035')
+md5sums=('SKIP')
 package(){
     install -d "$pkgdir/usr/bin/"
     install -Dm755 pac "$pkgdir/usr/bin/pac"
