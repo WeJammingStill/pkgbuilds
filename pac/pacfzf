@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 AUR_LIST=$HOME/.cache/aur-list.txt
-AUR_HELPER=/usr/bin/yay
+AUR_HELPER="/usr/bin/aur sync"
 
 usage() {
   LESS=-FEXR less <<HELP
-    pac [options] [query]
-    pac install, in <packagename>       - Installs a package. You can use both main and AUR packages.
-    pac remove, rm <packagename>        - Removes a package.
-    pac aur, a <packagename>           - Installs a package from the AUR. Use this if install doesn't work for an AUR package.
-    pac aur-sync, as <packagename>     - Updates AUR package list
-    pac update, up <packagename>        - Updates All packages
+    pacsearch [options] [query]
+    pacsearch install, in <packagename>       - Installs a package. You can use both main and AUR packages.
+    pacsearch remove, rm <packagename>        - Removes a package.
+    pacsearch aur, a <packagename>           - Installs a package from the AUR. Use this if install doesn't work for an AUR package.
+    pacsearch aur-sync, as <packagename>     - Updates AUR package list
+    pacsearch update, up <packagename>        - Updates All packages
 
 HELP
 }
@@ -30,7 +30,8 @@ aur() {
     fi
 
     mapfile -t pkgs < <( fzf --reverse --header-lines=1 --multi --cycle --ansi --preview="$AUR_HELPER -Si {}" < "$AUR_LIST" )
-    (( ${#pkgs[@]} > 0 )) && $AUR_HELPER -S "${pkgs[@]}"
+    (( ${#pkgs[@]} > 0 )) && $AUR_HELPER -c "${pkgs[@]}"
+    sudo pacman -S "${pkgs[@]}"
 }
 
 fzf() {
@@ -97,7 +98,7 @@ install() {
 }
 
 update(){
-    aursync && $AUR_HELPER -Syu --combinedupgrade --save
+    aursync && $AUR_HELPER -u && sudo pacman -Syyu
 }
 
 case "$1" in
