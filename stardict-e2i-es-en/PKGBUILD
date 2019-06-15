@@ -1,0 +1,24 @@
+#http://download.huzheng.org/misc/stardict-e2i-2.4.2.tar.bz2
+# Maintainer: th3lusive <th3lusive@yahoo.com>
+_pkgname=stardict-e2i
+pkgname=${_pkgname}-bin
+pkgver=2.4.2
+_pkgver=${pkgver}
+pkgrel=1
+pkgdesc="Spanish -> English dictionary for stardict et al"
+arch=('any')
+url="http://download.huzheng.org"
+license=('GPL')
+optdepends=('sdcv: command line dictionary.')
+provides=(${_pkgname})
+conflicts=(${_pkgname})
+source=("http://download.huzheng.org/misc/${_pkgname}-${_pkgver}.tar.bz2")
+sha512sums=('SKIP')
+
+package()
+{
+    cd $_pkgname-$_pkgver
+	install -m 755 -d "${pkgdir}/usr/share/stardict/dic/${_pkgname}"
+	install -m 644 -t "${pkgdir}/usr/share/stardict/dic/${_pkgname}" \
+        *.{dict.dz,idx,ifo}
+}
