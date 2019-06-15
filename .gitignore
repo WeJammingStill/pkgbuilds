@@ -7,3 +7,4 @@
 *.files.tar.gz.old
 */*tar.bz2
 */*log
+*/.SRCINFO
