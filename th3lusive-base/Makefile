@@ -13,7 +13,7 @@ install:
 	@install -Dm 0644 70-no-dejavu.conf /etc/fonts/conf.d/70-no-dejavu.conf
 	@echo "Installing repos configuration."
 	@mkdir -p /etc/pacman.d/
-	@install -Dm 0644 unoffical-repos /etc/pacman.d/unoffical
+	@install -Dm 0644 unofficial-repos /etc/pacman.d/unofficial
 	@echo "Include = /etc/pacman.d/unofficial" >> /etc/pacman.conf
 	@install -Dm 0644 pkglist.hook /usr/share/libalpm/hooks/pkglist.hook
 	@echo "Installing mouse and keyboard configuration."
@@ -53,7 +53,7 @@ fonts:
 repos:
 	@echo "Installing repos configuration."
 	@mkdir -p /etc/pacman.d/
-	@install -Dm 0644 unoffical-repos /etc/pacman.d/unoffical
+	@install -Dm 0644 unofficial-repos /etc/pacman.d/unofficial
 	@echo "Include = /etc/pacman.d/unofficial" >> /etc/pacman.conf
 	@install -Dm 0644 pkglist.hook /usr/share/libalpm/hooks/pkglist.hook
 
