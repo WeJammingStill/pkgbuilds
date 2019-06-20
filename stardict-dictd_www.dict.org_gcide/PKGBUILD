@@ -1,6 +1,5 @@
 # Maintainer: th3lusive <th3lusive@yahoo.com>
-_pkgname=stardict-dictd_www.dict.org_gcide
-pkgname=stardict-gcide-bin
+pkgname=stardict-dictd_www.dict.org_gcide
 pkgver=5.2.4.2
 _pkgver=2.4.2
 pkgrel=3
